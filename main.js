@@ -1,69 +1,30 @@
 $(document).ready(function () {
-   
+    $(".error").hide();
     $("button").click(function () {
-        $(".mailErr").css("color", "red");
-        $(".fErr").css("color", "red");
-        var email = $("#email").val();
+        var phone = $("#phone").val();
         var feedback = $("#feedback").val();
         var err = 0;
-        const checkMail = new RegExp("[a-zA-Z]+([\.\-_]\w+)*\@[a-zA-Z]+([\.\-_]\w+)*(\.\w{3})?(\.\w{2})?");
-        const checkEmpty = new RegExp("([^\s]*)");
-        if (email.length === 0) {
-            $(".mailErr").html("Error！Email can't be empty.");
-            $(".mailErr").show();
+        var errM = "";
+        const checkPhone = new RegExp("0[1-9]{8,10}");
+        if (phone.trim() === "") {
+            errM += "<li>Phone number can not be empty.</li>"
             err++;
         }
-        else if (!checkMail.test(email) && checkEmpty.test(email)) {
-            $(".mailErr").html("Error！You must enter valld email. Ex：address@domain.com");
-            $(".mailErr").show();
+        else if (!checkPhone.test(phone)) {
+            errM += "<li>You must enter valid phone number. Ex: 0955333444</li>";
             err++;
-        } else {
-            $(".mailErr").hide();
         }
-        if (feedback.length === 0) {
-            $(".fErr").html("Error！Feedback can not be empty.");
-            $(".fErr").show();
+        if (feedback.trim() === "") {
+            errM += "<li>Feedback can not be empty.</li>";
             err++;
-        } else {
-            $(".fErr").hide();
         }
         if (err == 0) {
             return true;
         } else {
+            $(".error").show();
+            $(".error").html("<p><b>Error!</b></p><ul>" + errM + "</ul>");
             return false;
         }
 
-    });
-});
-$(document).ready(function () {
-    $(".mailErr").hide();
-    $(".fErr").hide();
-    $("#email").blur(function () {
-        const checkMail = new RegExp("[a-zA-Z]+([\.\-_]\w+)*\@[a-zA-Z]+([\.\-_]\w+)*(\.\w{3})?(\.\w{2})?");
-       
-        var email = $("#email").val();
-        $(".mailErr").css("color", "red");
-        if (email.trim()==="") {
-            $(".mailErr").html("Error！Email can't be empty.");
-            $(".mailErr").show();
-        }
-        else if (!checkMail.test(email) ) {
-            $(".mailErr").html("Error！You must enter valld email. Ex：address@domain.com");
-            $(".mailErr").show();
-        } else {
-            $(".mailErr").hide();
-        }
-    });
-    $("#feedback").blur(function () {
-        $(".fErr").css("color", "red");
-
-        var feedback = $("#feedback").val();
-
-        if (feedback.length === 0) {
-            $(".fErr").html("Error！Feedback can not be empty.");
-            $(".fErr").show();
-        } else {
-            $(".fErr").hide();
-        }
     });
 });

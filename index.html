@@ -10,35 +10,34 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="main.js"></script>
-    
+
 </head>
 
 <body>
     <div class="w-75">
         <form action="feedback_processing.php">
             <div class="form-group row ">
-
-                <label class="col-4 col-form-label text-right"></label>
-                <div class="col-8 h1">
-                    <div class="input-group bg-primary w-100 rounded input-group-text text-white ">
+                <div class=" offset-4  col-8 mt-5">
+                    <p><b>Full Name: </b>Nguyễn Hoàng Khang <b> MSSV:</b> SE150280 <b> Class: </b>SE1505</p>
+                    <div class="input-group bg-primary w-100 rounded input-group-text text-white h2">
                         <p for="" class=" display-2">Send Feedback</p>
                     </div>
                 </div>
             </div>
             <div class="form-group row">
 
-                <label for="email" class="col-4 col-form-label text-right">Email</label>
+                <label for="text" class="col-4 col-form-label text-right">Phone</label>
                 <div class="col-8">
                     <div class="input-group">
                         <div class="input-group-prepend ">
                             <div class="input-group-text ">
-                                <i class="fa fa-address-card-o"></i>
+                                <i class="fa fa-mobile-phone"></i>
                             </div>
                         </div>
-                        <input id="email" name="email" placeholder="Please enter your email here " type="text"
+                        <input id="phone" name="phone" placeholder="Please enter your phone number " type="text"
                             class="form-control">
                     </div>
-                    <label class="mailErr mt-2"></label>
+
                 </div>
             </div>
             <div class="form-group row">
@@ -57,18 +56,21 @@
                 <label for="feedback" class="col-4 col-form-label text-right">Feedback</label>
                 <div class="col-8">
                     <textarea id="feedback" name="feedback" cols="40" rows="5" class="form-control"></textarea>
-                    <label class="fErr mt-2" ></label>
                 </div>
-                
+
             </div>
             <div class="form-group row">
                 <div class="offset-4 col-8">
                     <button name="submit" type="submit" class="btn btn-primary">Send Feedback</button>
                 </div>
             </div>
+            <div class="form-group row ">
+                <div class="offset-4  col-8 mt-2 ">
+                        <label class="error alert-danger w-100 rounded p-2 "></label>
+                </div>
+            </div>
         </form>
     </div>
-
 
     </div>
 </body>
