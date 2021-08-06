@@ -1,6 +1,5 @@
 $(document).ready(function () {
-    $(".mailErr").hide();
-    $(".fErr").hide();
+   
     $("button").click(function () {
         $(".mailErr").css("color", "red");
         $(".fErr").css("color", "red");
@@ -41,14 +40,14 @@ $(document).ready(function () {
     $(".fErr").hide();
     $("#email").blur(function () {
         const checkMail = new RegExp("[a-zA-Z]+([\.\-_]\w+)*\@[a-zA-Z]+([\.\-_]\w+)*(\.\w{3})?(\.\w{2})?");
-        const checkEmpty = new RegExp("([^\s]*)");
+       
         var email = $("#email").val();
         $(".mailErr").css("color", "red");
-        if (email.length === 0) {
+        if (email.trim()==="") {
             $(".mailErr").html("Error！Email can't be empty.");
             $(".mailErr").show();
         }
-        else if (!checkMail.test(email) && checkEmpty.test(email)) {
+        else if (!checkMail.test(email) ) {
             $(".mailErr").html("Error！You must enter valld email. Ex：address@domain.com");
             $(".mailErr").show();
         } else {
